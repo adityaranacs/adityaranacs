@@ -2,7 +2,7 @@
 - 👀 I’m interested in DSA
 - 🌱 I’m currently learning Flutter
 - 💞️ I’m looking to collaborate on Theoretical CS
-- 📫 How to reach me @_adityarana07_
+- 📫 How to reach me ? my email ID - adityarana.cs@gmail.com
 
 <!---
 adityaranacs/adityaranacs is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
