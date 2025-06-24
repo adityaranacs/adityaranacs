@@ -10,17 +10,9 @@
 - Optimize UX, reduce load times, and enhance client engagement
 
 🚀 **Current Interests**  
-- **Flutter** Development  
+- **React** Development  
 - **Theoretical Computer Science**  
-- **Data Structures & Algorithms (DSA)**  
 - **Blockchain & Micro-Frontends**
-
-📌 **Featured Projects**  
-- Multi-Platform Streaming Solution (React Native + Web)  
-- Hospital CRM & Management System  
-- Maritime Tracking & Billing with GPS & Automation  
-- Blockchain Analytics Dashboard  
-- Short-Video Platform like Instagram Reels
 
 📫 Reach Me At  
 📧 adityarana.cs@gmail.com  
