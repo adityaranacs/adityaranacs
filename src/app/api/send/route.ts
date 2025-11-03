@@ -1,44 +1,58 @@
-import { EmailTemplate } from "@/components/email-template";
-import { config } from "@/data/config";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 import { z } from "zod";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
+// Email validation schema
 const Email = z.object({
   fullName: z.string().min(2, "Full name is invalid!"),
   email: z.string().email({ message: "Email is invalid!" }),
   message: z.string().min(10, "Message is too short!"),
 });
+
+// Create Nodemailer transporter
+const transporter = nodemailer.createTransport({
+  service: process.env.EMAIL_SERVICE, // e.g. "gmail"
+  auth: {
+    user: process.env.EMAIL_USER, // your email
+    pass: process.env.EMAIL_PASS, // your app password
+  },
+});
+
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    console.log(body);
+
     const {
       success: zodSuccess,
       data: zodData,
       error: zodError,
     } = Email.safeParse(body);
-    if (!zodSuccess)
+
+    if (!zodSuccess) {
       return Response.json({ error: zodError?.message }, { status: 400 });
-
-    const { data: resendData, error: resendError } = await resend.emails.send({
-      from: "Porfolio <onboarding@resend.dev>",
-      to: [config.email],
-      subject: "Contact me from portfolio",
-      react: EmailTemplate({
-        fullName: zodData.fullName,
-        email: zodData.email,
-        message: zodData.message,
-      }),
-    });
-
-    if (resendError) {
-      return Response.json({ resendError }, { status: 500 });
     }
 
-    return Response.json(resendData);
+    // Create email HTML (you can also import a React template if you prefer)
+    const htmlContent = `
+      <div style="font-family:sans-serif;line-height:1.6">
+        <h2>New Portfolio Contact</h2>
+        <p><strong>Name:</strong> ${zodData.fullName}</p>
+        <p><strong>Email:</strong> ${zodData.email}</p>
+        <p><strong>Message:</strong></p>
+        <p>${zodData.message}</p>
+      </div>
+    `;
+
+    // Send the email
+    await transporter.sendMail({
+      from: `"Portfolio Contact" <${process.env.EMAIL_FROM}>`,
+      to: process.env.EMAIL_RECEIVER ?? process.env.EMAIL_USER, // where you receive it
+      subject: "New contact form message from portfolio",
+      html: htmlContent,
+    });
+
+    return Response.json({ success: true, message: "Email sent successfully" });
   } catch (error) {
-    return Response.json({ error }, { status: 500 });
+    console.error("Email send error:", error);
+    return Response.json({ error: "Failed to send email" }, { status: 500 });
   }
 }

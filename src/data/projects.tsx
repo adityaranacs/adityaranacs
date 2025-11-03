@@ -1,14 +1,14 @@
-import AceTernityLogo from "@/components/logos/aceternity";
-import SlideShow from "@/components/slide-show";
-import { Button } from "@/components/ui/button";
-import { TypographyH3, TypographyP } from "@/components/ui/typography";
-import { ArrowUpRight, ExternalLink, Link2, MoveUpRight } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { ReactNode } from "react";
-import { RiNextjsFill, RiNodejsFill, RiReactjsFill } from "react-icons/ri";
+"use client"
+import type React from "react"
+
+import SlideShow from "@/components/slide-show"
+import { Button } from "@/components/ui/button"
+import { TypographyH3, TypographyP } from "@/components/ui/typography"
+import { ArrowUpRight } from "lucide-react"
+import Link from "next/link"
+import type { ReactNode } from "react"
+import { RiNextjsFill, RiNodejsFill, RiReactjsFill } from "react-icons/ri"
 import {
-  SiChakraui,
   SiDocker,
   SiExpress,
   SiFirebase,
@@ -23,34 +23,27 @@ import {
   SiSocketdotio,
   SiSupabase,
   SiTailwindcss,
-  SiThreedotjs,
   SiTypescript,
-  SiVuedotjs,
-} from "react-icons/si";
-import { TbBrandFramerMotion } from "react-icons/tb";
-const BASE_PATH = "/assets/projects-screenshots";
+  SiAmazon,
+} from "react-icons/si"
+import { TbBrandFramerMotion } from "react-icons/tb"
+import type { JSX } from "react/jsx-runtime"
+
+const BASE_PATH = "/assets/projects-screenshots"
 
 const ProjectsLinks = ({ live, repo }: { live: string; repo?: string }) => {
   return (
     <div className="flex flex-col md:flex-row items-center justify-start gap-3 my-3 mb-8">
-      <Link
-        className="font-mono underline flex gap-2"
-        rel="noopener"
-        target="_new"
-        href={live}
-      >
-        <Button variant={"default"} size={"sm"}>
-          Visit Website
-          <ArrowUpRight className="ml-3 w-5 h-5" />
-        </Button>
-      </Link>
+      {live !== "#" && (
+        <Link className="font-mono underline flex gap-2" rel="noopener" target="_new" href={live}>
+          <Button variant={"default"} size={"sm"}>
+            Visit Website
+            <ArrowUpRight className="ml-3 w-5 h-5" />
+          </Button>
+        </Link>
+      )}
       {repo && (
-        <Link
-          className="font-mono underline flex gap-2"
-          rel="noopener"
-          target="_new"
-          href={repo}
-        >
+        <Link className="font-mono underline flex gap-2" rel="noopener" target="_new" href={repo}>
           <Button variant={"default"} size={"sm"}>
             Github
             <ArrowUpRight className="ml-3 w-5 h-5" />
@@ -58,27 +51,22 @@ const ProjectsLinks = ({ live, repo }: { live: string; repo?: string }) => {
         </Link>
       )}
     </div>
-  );
-};
+  )
+}
 
 export type Skill = {
-  title: string;
-  bg: string;
-  fg: string;
-  icon: ReactNode;
-};
+  title: string
+  bg: string
+  fg: string
+  icon: ReactNode
+}
+
 const PROJECT_SKILLS = {
   next: {
     title: "Next.js",
     bg: "black",
     fg: "white",
     icon: <RiNextjsFill />,
-  },
-  chakra: {
-    title: "Chakra UI",
-    bg: "black",
-    fg: "white",
-    icon: <SiChakraui />,
   },
   node: {
     title: "Node.js",
@@ -93,7 +81,7 @@ const PROJECT_SKILLS = {
     icon: <SiPython />,
   },
   prisma: {
-    title: "prisma",
+    title: "Prisma",
     bg: "black",
     fg: "white",
     icon: <SiPrisma />,
@@ -123,16 +111,10 @@ const PROJECT_SKILLS = {
     icon: <SiReactquery />,
   },
   shadcn: {
-    title: "ShanCN UI",
+    title: "shadcn UI",
     bg: "black",
     fg: "white",
     icon: <SiShadcnui />,
-  },
-  aceternity: {
-    title: "Aceternity",
-    bg: "black",
-    fg: "white",
-    icon: <AceTernityLogo />,
   },
   tailwind: {
     title: "Tailwind",
@@ -145,16 +127,6 @@ const PROJECT_SKILLS = {
     bg: "black",
     fg: "white",
     icon: <SiDocker />,
-  },
-  yjs: {
-    title: "Y.js",
-    bg: "black",
-    fg: "white",
-    icon: (
-      <span>
-        <strong>Y</strong>js
-      </span>
-    ),
   },
   firebase: {
     title: "Firebase",
@@ -180,12 +152,6 @@ const PROJECT_SKILLS = {
     fg: "white",
     icon: <SiTypescript />,
   },
-  vue: {
-    title: "Vue.js",
-    bg: "black",
-    fg: "white",
-    icon: <SiVuedotjs />,
-  },
   react: {
     title: "React.js",
     bg: "black",
@@ -197,18 +163,6 @@ const PROJECT_SKILLS = {
     bg: "black",
     fg: "white",
     icon: <SiSanity />,
-  },
-  spline: {
-    title: "Spline",
-    bg: "black",
-    fg: "white",
-    icon: <SiThreedotjs />,
-  },
-  gsap: {
-    title: "GSAP",
-    bg: "black",
-    fg: "white",
-    icon: "",
   },
   framerMotion: {
     title: "Framer Motion",
@@ -222,480 +176,277 @@ const PROJECT_SKILLS = {
     fg: "white",
     icon: <SiSupabase />,
   },
-};
+  aws: {
+    title: "AWS",
+    bg: "black",
+    fg: "white",
+    icon: <SiAmazon />,
+  },
+}
+
 export type Project = {
-  id: string;
-  category: string;
-  title: string;
-  src: string;
-  screenshots: string[];
-  skills: { frontend: Skill[]; backend: Skill[] };
-  content: React.ReactNode | any;
-  github?: string;
-  live: string;
-};
+  id: string
+  category: string
+  title: string
+  src: string
+  screenshots: string[]
+  skills: { frontend: Skill[]; backend: Skill[] }
+  content: React.ReactNode | any
+  github?: string
+  live: string
+}
+
 const projects: Project[] = [
-  {
-    id: "codingducks",
-    category: "Coding platform",
-    title: "Coding Ducks",
-    src: "/assets/projects-screenshots/codingducks/landing.png",
-    screenshots: ["landing.png"],
+{
+    id: "hrms",
+    category: "HR Management",
+    title: "AI-Powered HRMS",
+    src: "/tick-1.png",
+    screenshots: [
+      "/tick-1.png",
+    ],
     skills: {
-      frontend: [
-        PROJECT_SKILLS.ts,
-        PROJECT_SKILLS.next,
-        PROJECT_SKILLS.chakra,
-        PROJECT_SKILLS.reactQuery,
-        PROJECT_SKILLS.firebase,
-      ],
-      backend: [
-        PROJECT_SKILLS.node,
-        PROJECT_SKILLS.express,
-        PROJECT_SKILLS.prisma,
-        PROJECT_SKILLS.python,
-        PROJECT_SKILLS.postgres,
-        PROJECT_SKILLS.sockerio,
-      ],
+      frontend: [PROJECT_SKILLS.react, PROJECT_SKILLS.next, PROJECT_SKILLS.ts, PROJECT_SKILLS.tailwind],
+      backend: [PROJECT_SKILLS.node, PROJECT_SKILLS.express, PROJECT_SKILLS.aws, PROJECT_SKILLS.postgres],
     },
-    live: "https://www.codingducks.xyz/",
-    github: "https://github.com/Naresh-Khatri/Coding-Ducks",
+    live: "Independent internal platform",
     get content() {
       return (
         <div>
-          <TypographyP className="font-mono text-2xl text-center">
-            Coding ducks = LeetCode + CodePen + CSS Battles
+          <TypographyP className="font-mono text-xl text-center mb-4">
+            End-to-end Human Resource Management System with AI-driven analytics.
           </TypographyP>
-          <TypographyP className="font-mono ">
-            Coding Ducks is your coding dojo — where you level up your skills,
-            battle in real-time code duels, and earn badges like a true code
-            warrior. Track your progress, flex your brain, and climb the
-            leaderboard. Ready to quack the code?
+          <TypographyP className="font-mono">
+            Comprehensive HRMS platform featuring AI-based workforce analytics, automated leave management,
+            payroll processing, and real-time attendance tracking built with Next.js, Node.js, and AWS.
           </TypographyP>
-          <ProjectsLinks live={this.live} repo={this.github} />
-          <TypographyH3 className="my-4 mt-8">Problems </TypographyH3>
-          <p className="font-mono mb-2">
-            Solve coding problems similar to LeetCode, enhancing your
-            problem-solving skills across various languages.
-          </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/codingducks/problems.png`,
-              `${BASE_PATH}/codingducks/problem.png`,
-            ]}
-          />
-          <TypographyH3 className="my-4 mt-8">Ducklets</TypographyH3>
-          <p className="font-mono mb-2">
-            Collaborate in real-time with others in a multiplayer coding
-            environment, just like CodePen but with a social twist.
-          </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/codingducks/ducklets.png`,
-              `${BASE_PATH}/codingducks/ducklet1.png`,
-              `${BASE_PATH}/codingducks/ducklet2.png`,
-            ]}
-          />
-          <TypographyH3 className="my-4 mt-8">UI Battles </TypographyH3>
 
-          <p className="font-mono mb-2">
-            Challenge yourself to create UI components with HTML/CSS/JS, and get
-            instant feedback with an automated similarity scoring.
-          </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/codingducks/css-battles.png`,
-              `${BASE_PATH}/codingducks/css-battle.png`,
-              `${BASE_PATH}/codingducks/css-battle2.png`,
-            ]}
-          />
-          <TypographyH3 className="my-4 mt-8">Contests </TypographyH3>
-          <p className="font-mono mb-2">
-            Organize or participate in coding competitions. Successfully used to
-            host three contests during college.
-          </p>
-          <SlideShow images={[`${BASE_PATH}/codingducks/contests.png`]} />
-          <TypographyH3 className="my-4 mt-8">Playground </TypographyH3>
-          <p className="font-mono mb-2">
-            Test and execute your code instantly in my versatile online code
-            runner.
-          </p>
-          <SlideShow images={[`${BASE_PATH}/codingducks/playground.png`]} />
-          <TypographyH3 className="my-4 mt-8">Users</TypographyH3>
+          <div className="flex flex-col items-center gap-10 my-10">
+            <img src="/tick-1.png" alt="HRMS Welcome Page"   className="rounded-2xl shadow-2xl w-full max-w-5xl object-cover"
+ />
+            <img src="/tick-2.png" alt="HRMS Dashboard"   className="rounded-2xl shadow-2xl w-full max-w-5xl object-cover"
+ />
+          </div>
 
-          <p className="font-mono mb-2">
-            Track your progress, earn badges, and climb the rankings with
-            detailed user profiles and activity tracking.
-          </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/codingducks/users.png`,
-              `${BASE_PATH}/codingducks/user.png`,
-            ]}
-          />
+          <TypographyH3 className="my-4 mt-8">Key Features</TypographyH3>
+          <ul className="list-disc ml-6 font-mono space-y-2">
+            <li>AI-driven employee analytics and insights</li>
+            <li>Attendance and shift tracking with location tagging</li>
+            <li>Payroll and compliance automation</li>
+            <li>Smart leave & workflow approval systems</li>
+          </ul>
         </div>
-      );
+      )
     },
   },
+
+  // --------------------- BLOCKCHAIN DASHBOARD ---------------------
   {
-    id: "couponluxury",
-    category: "Coupon site",
-    title: "Coupon Luxury",
-    src: "/assets/projects-screenshots/couponluxury/landing.png",
-    screenshots: ["1.png", "2.png", "3.png", "4.png", "5.png"],
-    live: "https://www.couponluxury.com/",
+    id: "blockchain-dashboard",
+    category: "Analytics",
+    title: "Blockchain Analytics Dashboard",
+    src: "/b-1.webp",
+    screenshots: [
+      "/blockchain-dashboard-tx-chart.jpg",
+      "/blockchain-dashboard-network.jpg",
+    ],
     skills: {
-      frontend: [
-        PROJECT_SKILLS.js,
-        PROJECT_SKILLS.next,
-        PROJECT_SKILLS.chakra,
-        PROJECT_SKILLS.vue,
-      ],
-      backend: [
-        PROJECT_SKILLS.node,
-        PROJECT_SKILLS.express,
-        PROJECT_SKILLS.prisma,
-        PROJECT_SKILLS.postgres,
-        PROJECT_SKILLS.docker,
-      ],
+      frontend: [PROJECT_SKILLS.react, PROJECT_SKILLS.next, PROJECT_SKILLS.ts, PROJECT_SKILLS.tailwind],
+      backend: [PROJECT_SKILLS.node, PROJECT_SKILLS.express, PROJECT_SKILLS.aws, PROJECT_SKILLS.postgres],
     },
-    get content(): JSX.Element {
+    live: "Private client project – not public",
+    get content() {
       return (
         <div>
-          <TypographyP className="font-mono ">
-            CouponLuxury is your go-to destination for snagging the best deals
-            without lifting a finger. Whether you&apos;re hunting for the latest
-            discounts or trying to save a buck at your favorite stores,
-            CouponLuxury&apos;s got you covered.
+          <TypographyP className="font-mono text-xl text-center mb-4">
+            High-performance blockchain visualization and analytics platform.
           </TypographyP>
-          <ProjectsLinks live={this.live} repo={this.github} />
-          <p className="font-mono mb-2 mt-4">
-            As soon as you land, boom! You&apos;re greeted with the freshest
-            coupons and top-tier deals that&apos;ll make your wallet happy.
-          </p>
-          <SlideShow images={[`${BASE_PATH}/couponluxury/landing.png`]} />
-          <TypographyH3 className="my-4 ">Stores</TypographyH3>
-          <p className="font-mono mb-2">
-            Dive into a comprehensive list of stores, each packed with exclusive
-            deals and discounts. It&apos;s like having a VIP pass to every sale
-            in town.
-          </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/couponluxury/stores.png`,
-              `${BASE_PATH}/couponluxury/store.png`,
-            ]}
-          />
-          <TypographyH3 className="my-4 mt-8">Categories</TypographyH3>
+          <TypographyP className="font-mono">
+            Built for real-time monitoring of blockchain transactions with custom visualization layers and API integration.
+          </TypographyP>
 
-          <p className="font-mono mb-2">
-            Whatever you&apos;re into—fashion, tech, food—you&apos;ll find it
-            neatly organized here. No more endless scrolling; just pick a
-            category and get the best offers instantly.
-          </p>
-          <SlideShow images={[`${BASE_PATH}/couponluxury/categories.png`]} />
-          <TypographyH3 className="my-4 mt-8">Custom CMS </TypographyH3>
-          <p className="font-mono mb-2">
-            Powered by Vue.js, this bad boy allows us to keep the content
-            dynamic and up-to-date. From flash sales to limited-time offers, my
-            CMS ensures everything&apos;s live and relevant.
-          </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/couponluxury/cms-1.png`,
-              `${BASE_PATH}/couponluxury/cms-2.png`,
-            ]}
-          />
-          <p className="font-mono mb-2 mt-5">
-            Plus, I&apos;ve sprinkled in some extra magic like personalized
-            deal recommendations, user-friendly search features, and a sleek,
-            responsive design that works like a charm on any device.
-          </p>
-          <p className="font-mono mb-2">
-            CouponLuxury isn&apos;t just a website; it&apos;s your personal deal-hunting
-            assistant, ensuring you never miss out on a bargain!
-          </p>
-          {/* <TypographyP className="my-4 mt-8">
-          <strong>Misc:</strong>
-          Hosted not one, not two, but THREE coding contests (Codemacha) during
-          college. Safe to say, Coding Ducks passed the vibe check.
+          
+
+          <TypographyH3 className="my-4 mt-8">Core Highlights</TypographyH3>
+          <ul className="list-disc ml-6 font-mono space-y-2">
+            <li>Processes 1,000+ transactions per minute</li>
+            <li>Interactive analytics with D3.js visualizations</li>
+            <li>Secure API gateway for client dashboards</li>
+          </ul>
+        </div>
+      )
+    },
+  },
+
+  // --------------------- OCEANIEK STREAM ---------------------
+  {
+    id: "oceaniek-stream",
+    category: "Entertainment",
+    title: "Oceaniek Stream – Multi-Platform Streaming Solution",
+    src: "/oce.png",
+    screenshots: [
+      "/streaming-dashboard.jpg",
+      "/streaming-creator-portal.jpg",
+      "/streaming-mobile-ui.jpg",
+    ],
+    skills: {
+      frontend: [PROJECT_SKILLS.react, PROJECT_SKILLS.next, PROJECT_SKILLS.ts, PROJECT_SKILLS.tailwind],
+      backend: [PROJECT_SKILLS.node, PROJECT_SKILLS.express, PROJECT_SKILLS.aws, PROJECT_SKILLS.postgres],
+    },
+    live: "https://oceaniek.stream",
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono text-xl text-center mb-4">
+            Full-stack entertainment & live-streaming platform for creators and audiences.
+          </TypographyP>
+          <TypographyP className="font-mono">
+            A responsive streaming experience with adaptive bitrate streaming, creator dashboards,
+            and subscription-based access control.
+          </TypographyP>
+
+          <div className="flex flex-col items-center gap-10 my-10">
+          
+          </div>
+
+          <TypographyH3 className="my-4 mt-8">Platform Highlights</TypographyH3>
+          <ul className="list-disc ml-6 font-mono space-y-2">
+            <li>Live and on-demand content with global CDN</li>
+            <li>Creator subscription system</li>
+            <li>Adaptive bitrate playback</li>
+            <li>Analytics for viewer retention and engagement</li>
+          </ul>
+        </div>
+      )
+    },
+  },
+
+  // --------------------- PUNJAB PORTS ---------------------
+  {
+  id: "nautilus-times",
+  category: "Enterprise",
+  title: "Nautilus Times – Maritime Services & Certification",
+  src: "/nt.png",
+  screenshots: ["/nt.png", "/nt.png"],
+  skills: {
+    frontend: [PROJECT_SKILLS.react, PROJECT_SKILLS.next, PROJECT_SKILLS.ts, PROJECT_SKILLS.tailwind],
+    backend: [PROJECT_SKILLS.node, PROJECT_SKILLS.express, PROJECT_SKILLS.aws, PROJECT_SKILLS.postgres],
+  },
+  live: "https://punjabports.com",
+  get content() {
+    return (
+      <div>
+        <TypographyP className="font-mono text-xl text-center mb-4">
+          Leading maritime services provider.
         </TypographyP>
-        <TypographyP className="my-4 mt-8">
-          <strong>Target Audience:</strong>
-          For all the novice coders out there ready to make their mark.
-        </TypographyP> */}
-        </div>
-      );
-    },
-  },
-  {
-    id: "the-booking-desk",
-    category: "Travel",
-    title: "The Booking Desk",
-    src: "/assets/projects-screenshots/the-booking-desk/landing.png",
-    screenshots: ["1.png"],
-    live: "https://thebookingdesk.com/",
-    skills: {
-      frontend: [
-        PROJECT_SKILLS.ts,
-        PROJECT_SKILLS.next,
-        PROJECT_SKILLS.aceternity,
-        PROJECT_SKILLS.tailwind,
-      ],
-      backend: [PROJECT_SKILLS.sanity],
-    },
-    get content() {
-      return (
-        <div>
-          <TypographyP className="font-mono ">
-            The Booking Desk is your ultimate travel consultation hub, designed
-            to turn your wanderlust dreams into reality. With a focus on smooth
-            and visually captivating animations, navigating the site feels like
-            a breeze—it&apos;s almost as if the destinations are calling you.
-          </TypographyP>
-          <ProjectsLinks live={this.live} repo={this.github} />
-          <p className="font-mono mb-2 mt-8">
-            A sleek, modern interface greets you, featuring the latest travel
-            tips, deals, and must-visit spots around the globe.
-          </p>
-          <SlideShow images={[`${BASE_PATH}/the-booking-desk/landing.png`]} />
-          <TypographyH3 className="my-4 mt-8">Blogs</TypographyH3>
-          <p className="font-mono mb-2">
-            Dive into the curated articles written by travel experts. Whether
-            you&apos;re looking for hidden gems or travel hacks, our blog section has
-            you covered.
-          </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/the-booking-desk/blogs.png`,
-              `${BASE_PATH}/the-booking-desk/blog.png`,
-            ]}
-          />
-          <TypographyH3 className="my-4 mt-8">Sanity CMS</TypographyH3>
 
-          <p className="font-mono mb-2">
-            Keeping everything fresh and up-to-date, I&apos;ve integrated Sanity CMS
-            to manage all the content with ease, ensuring you always get the
-            latest and greatest information.
-          </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/the-booking-desk/cms-1.png`,
-              `${BASE_PATH}/the-booking-desk/cms-2.png`,
-            ]}
-          />
-          <p className="font-mono mb-2 my-8">
-            With a stunning 100% score on Lighthouse, The Booking Desk isn&apos;t
-            just beautiful—it&apos;s built to perform. Whether you&apos;re planning your
-            next adventure or just daydreaming, our site delivers a top-notch
-            experience that&apos;s both informative and enjoyable.
-          </p>
-        </div>
-      );
-    },
-  },
-  {
-    id: "portfolio",
-    category: "Portfolio",
-    title: "My Portfolio",
-    src: "/assets/projects-screenshots/portfolio/landing.png",
-    screenshots: ["1.png"],
-    live: "http://nareshkhatri.vercel.app",
-    github:"https://github.com/Naresh-Khatri/Portfolio",
-    skills: {
-      frontend: [
-        PROJECT_SKILLS.ts,
-        PROJECT_SKILLS.next,
-        PROJECT_SKILLS.shadcn,
-        PROJECT_SKILLS.aceternity,
-        PROJECT_SKILLS.framerMotion,
-        PROJECT_SKILLS.tailwind,
-        PROJECT_SKILLS.spline,
-      ],
-      backend: [],
-    },
-    get content() {
-      return (
-        <div>
-          <TypographyP className="font-mono ">
-            Welcome to my digital playground, where creativity meets code in the
-            dopest way possible.
-          </TypographyP>
-          <ProjectsLinks live={this.live} repo={this.github} />
-          <TypographyH3 className="my-4 mt-8">
-            Beautiful 3D Objects{" "}
-          </TypographyH3>
-          <p className="font-mono mb-2">
-            Did you see that 3D keyboard modal? Yeah! I made that. That
-            interactive keyboard is being rendered in 3D on a webpage 🤯, and
-            pressing each keycap reveals a skill in a goofy way. It&apos;s like
-            typing, but make it art.
-          </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/portfolio/landing.png`,
-              `${BASE_PATH}/portfolio/skills.png`,
-            ]}
-          />
-          <TypographyH3 className="my-4 ">Space Theme</TypographyH3>
-          <p className="font-mono mb-2">
-            Dark background + floating particles = out-of-this-world cool.
-          </p>
-          <SlideShow images={[`${BASE_PATH}/portfolio/navbar.png`]} />
-          <TypographyH3 className="my-4 mt-8">Projects</TypographyH3>
+        <TypographyP className="font-mono">
+          Nautilus Times offers a full range of maritime services including statutory surveys, certification, and 
+          STCW-compliant training. With over 15 years of experience, 60+ global offices, and thousands of certified 
+          seafarers, we ensure the highest standards of safety, quality, and compliance at sea.
+        </TypographyP>
 
-          <p className="font-mono mb-2">
-            My top personal and freelance projects — no filler, all killer.
-          </p>
-          <SlideShow
-            images={[
-              `${BASE_PATH}/portfolio/projects.png`,
-              `${BASE_PATH}/portfolio/project.png`,
-            ]}
-          />
-          <p className="font-mono mb-2 mt-8 text-center">
-            This site&apos;s not just a portfolio — it&apos;s a whole vibe.
-          </p>
-        </div>
-      );
-    },
+        
+
+        <TypographyH3 className="my-4 mt-8">Core Services</TypographyH3>
+        <ul className="list-disc ml-6 font-mono space-y-2">
+          <li>Statutory surveys and vessel certification</li>
+          <li>STCW-compliant training programs</li>
+          <li>Officer licensing and seafarer documentation</li>
+          <li>Vessel registration and technical services</li>
+        </ul>
+      </div>
+    )
   },
+},
+
+
+  // --------------------- PUNJAB PORTS CAFÉ ---------------------
   {
-    id: "ghostchat",
-    category: "Anonymous chat",
-    title: "GhostChat",
-    src: "/assets/projects-screenshots/ghostchat/1.png",
-    screenshots: ["1.png", "2.png", "3.png", "4.png"],
-    live: "https://ghostchat.vercel.app",
-    github:"https://github.com/Naresh-Khatri/GhostChat",
+    id: "punjab-ports-cafe",
+    category: "F&B / Hospitality",
+    title: "Punjab Ports Café & Food Ordering System",
+    src: "/pp.png",
+    screenshots: [
+      "/cafe-dashboard.jpg",
+      "/cafe-menu-ui.jpg",
+      "/cafe-billing-system.jpg",
+    ],
     skills: {
-      frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.next, PROJECT_SKILLS.chakra],
-      backend: [PROJECT_SKILLS.supabase],
+      frontend: [PROJECT_SKILLS.react, PROJECT_SKILLS.next, PROJECT_SKILLS.ts, PROJECT_SKILLS.tailwind],
+      backend: [PROJECT_SKILLS.node, PROJECT_SKILLS.express, PROJECT_SKILLS.aws, PROJECT_SKILLS.postgres],
     },
+    live: "https://punjabports.com/",
     get content() {
       return (
         <div>
-          <TypographyP className="font-mono ">
-            Ghostchat is your go-to spot for sending anonymous messages without
-            leaving a trace. Powered by Supabase, it&apos;s all about keeping things
-            low-key and secure. Whether you&apos;re sharing secrets, giving feedback,
-            or just having some fun, Ghostchat ensures your identity stays
-            hidden, while your voice is heard. Say what you want, without the
-            worry.
+          <TypographyP className="font-mono text-xl text-center mb-4">
+            Digital ordering & billing solution for Punjab Ports’ internal F&B division.
           </TypographyP>
-          <ProjectsLinks live={this.live} repo={this.github} />
-          <SlideShow
-            images={[
-              `${BASE_PATH}/ghostchat/1.png`,
-              `${BASE_PATH}/ghostchat/2.png`,
-              `${BASE_PATH}/ghostchat/3.png`,
-              `${BASE_PATH}/ghostchat/4.png`,
-            ]}
-          />
-        </div>
-      );
-    },
-  },
-  {
-    id: "jra",
-    category: "Result analyzer",
-    title: "JNTUA Results Analyzer",
-    src: "/assets/projects-screenshots/jra/1.png",
-    screenshots: ["1.png"],
-    live: "https://naresh-khatri.github.io/JNTUA-result-analyser-spa/#/",
-    skills: {
-      frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.vue],
-      backend: [
-        PROJECT_SKILLS.node,
-        PROJECT_SKILLS.mongo,
-        PROJECT_SKILLS.express,
-        PROJECT_SKILLS.docker,
-      ],
-    },
-    get content() {
-      return (
-        <div>
-          <TypographyP className="font-mono ">
-            JNTUA Results Analyzer was a revolutionary tool designed to simplify
-            and enhance the experience of accessing academic results. It served
-            as a powerful proxy between the JNTUA university results website and
-            its users, offering a range of features that made result analysis
-            faster and more efficient. Here&apos;s what made it stand out:
+          <TypographyP className="font-mono">
+            Integrated food-ordering system enabling port staff and visitors to order from digital menus with automated
+            billing and live kitchen updates.
           </TypographyP>
-          <ProjectsLinks live={this.live} repo={this.github} />
-          <SlideShow images={[`${BASE_PATH}/jra/1.png`]} />
-          <TypographyH3 className="my-4 mt-8">
-            Effortless Results Retrieval
-          </TypographyH3>
-          {/* Effortless Results Retrieval: */}
-          <ul className="list-disc ml-6">
-            <li className="font-mono">
-              Search all your results using a single roll number, eliminating
-              the tedious task of sifting through thousands of rows on the
-              official site.
-            </li>
-          </ul>
-          <TypographyH3 className="my-4 mt-8">Class-Wise Results:</TypographyH3>
-          <ul className="list-disc ml-6">
-            <li className="font-mono">
-              class-wise results effortlessly by entering a roll number range.
-              No more manual searches or filtering.
-            </li>
-          </ul>
-          <TypographyH3 className="my-4 mt-8">Faculty Features:</TypographyH3>
-          <ul className="list-disc ml-6">
-            <li className="font-mono">
-              Faculty members could download batch results in Excel format,
-              making administrative tasks a breeze.
-            </li>
-          </ul>
-          <TypographyH3 className="my-4 mt-8">
-            Enhanced Data Insights:
-          </TypographyH3>
-          <ul className="list-disc ml-6">
-            <li className="font-mono">
-              Each result came with additional features including:
-              <ul className="list-disc font-mono ml-6">
-                <li>
-                  <strong>CGPA Calculations: </strong>Easily track your
-                  cumulative grade point average.
-                </li>
-                <li>
-                  <strong>Charts:</strong> Visualize your academic performance
-                  with comprehensive charts.
-                </li>
-                <li>
-                  <strong>Future Projections:</strong> Get insights into
-                  potential future outcomes based on current performance.
-                </li>
-                <li>
-                  <strong> Backlog Counts: </strong>Keep track of your backlog
-                  subjects at a glance.
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <TypographyH3 className="my-4 mt-8">Performance:</TypographyH3>
-          <ul className="list-disc ml-6">
-            <li className="font-mono">
-              The application was significantly faster and more efficient than
-              the official site, providing a smoother user experience.
-            </li>
-          </ul>
-          <TypographyH3 className="my-4 mt-8">Downfall:</TypographyH3>
-          <ul className="list-disc ml-6">
-            <li className="font-mono">
-              Unfortunately, as of May 2022, the tool stopped working due to the
-              introduction of CAPTCHA on the official JNTUA results site, which
-              disrupted the seamless functionality of the app. JNTUA Results
-              Analyzer transformed the way students and faculty interacted with
-              academic results, making it a must-have tool until its unexpected
-              shutdown.
-            </li>
+
+          <div className="flex flex-col items-center gap-10 my-10">
+            <img src="/pp.png" alt="Cafe Dashboard"   className="rounded-2xl shadow-2xl w-full max-w-5xl object-cover"
+ />
+            <img src="/menu.png" alt="Menu Interface"   className="rounded-2xl shadow-2xl w-full max-w-5xl object-cover"
+ />
+            <img src="/billing.png" alt="Billing System"   className="rounded-2xl shadow-2xl w-full max-w-5xl object-cover"
+ />
+          </div>
+
+          <ul className="list-disc ml-6 font-mono space-y-2 mt-6">
+            <li>Online ordering with digital menu</li>
+            <li>POS and billing integration</li>
+            <li>Kitchen display system for live orders</li>
           </ul>
         </div>
-      );
+      )
     },
   },
-];
-export default projects;
+
+// --------------------- THE HEALING GROOVE ---------------------
+{
+  id: "the-healing-groove",
+  category: "Healthcare & Wellness",
+  title: "The Healing Groove – Holistic Health & Wellness Platform",
+  src: "/thg.png",
+  screenshots: [
+    "/thg-homepage.jpg",
+    "/thg-services.jpg",
+    "/thg-therapy-dashboard.jpg",
+  ],
+  skills: {
+    frontend: [PROJECT_SKILLS.react, PROJECT_SKILLS.next, PROJECT_SKILLS.ts, PROJECT_SKILLS.tailwind],
+    backend: [PROJECT_SKILLS.node, PROJECT_SKILLS.express, PROJECT_SKILLS.aws, PROJECT_SKILLS.postgres],
+  },
+  live: "https://www.thehealinggroove.com/",
+  get content() {
+    return (
+      <div>
+        <TypographyP className="font-mono text-xl text-center mb-4">
+          A holistic healthcare and wellness platform focused on mental, emotional, and physical wellbeing.
+        </TypographyP>
+        <TypographyP className="font-mono">
+          The Healing Groove empowers users to connect with certified wellness practitioners, explore therapy
+          sessions, and manage holistic treatment plans seamlessly through an intuitive digital platform.
+        </TypographyP>
+
+        <TypographyH3 className="my-4 mt-8">Platform Highlights</TypographyH3>
+        <ul className="list-disc ml-6 font-mono space-y-2">
+          <li>Online therapy booking and wellness consultation</li>
+          <li>Personalized mental health programs and progress tracking</li>
+          <li>Practitioner management dashboard with secure communication</li>
+          <li>Integration of holistic healing practices with modern tech</li>
+        </ul>
+      </div>
+    )
+  },
+},
+
+]
+
+
+export default projects

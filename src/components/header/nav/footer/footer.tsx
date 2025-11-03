@@ -39,7 +39,7 @@ export default function Footer() {
           <span>Images:</span> Unsplash
         </motion.li>
       </ul>
-      <ul>
+      {/* <ul>
         <motion.li
           custom={[0.3, 0]}
           variants={translate}
@@ -58,7 +58,7 @@ export default function Footer() {
         >
           Newsletter
         </motion.li>
-      </ul>
+      </ul> */}
     </div>
   );
 }

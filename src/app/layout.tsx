@@ -18,6 +18,11 @@ import RemoteCursors from "@/components/realtime/remote-cursors";
 export const metadata: Metadata = {
   title: config.title,
   description: config.description.long,
+  icons: {
+    icon: "/icon.png", // 👈 path to your new icon file in /public
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
   keywords: config.keywords,
   authors: [{ name: config.author }],
   openGraph: {
@@ -45,6 +50,7 @@ export const metadata: Metadata = {
     follow: true,
   },
 };
+
 
 const archivoBlack = Archivo_Black({
   subsets: ["latin"],
