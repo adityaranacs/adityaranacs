@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🚀 My Portfolio Website
 
 Welcome to the repository for my personal portfolio website! This is where I showcase my skills, projects, and a bit of my personality through jaw-dropping 3D animations, slick interactions, and fluid motion. If you're into creative web design, you're in the right place.
@@ -72,3 +73,30 @@ If you'd like to contribute or suggest improvements, feel free to open an issue 
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
+=======
+# 👋 Hi, I’m Aditya Rana (@adityaranacs)
+
+🔧 **Full Stack Developer** with 2+ years of experience, currently leading a team at Oceaniek Technologies. Passionate about building scalable, high-performance applications with the **MERN Stack** and cutting-edge technologies.
+
+💡 **What I Do**  
+- Lead full-stack teams across healthcare, maritime, and OTT platforms  
+- Architect robust backend systems with Node.js and MongoDB  
+- Build performant React.js/React Native UIs  
+- Deliver streaming and CRM solutions with real-world impact  
+- Optimize UX, reduce load times, and enhance client engagement
+
+🚀 **Current Interests**  
+- **React** Development  
+- **Theoretical Computer Science**  
+- **Blockchain & Micro-Frontends**
+
+📫 Reach Me At  
+📧 adityarana.cs@gmail.com  
+🔗 [LinkedIn](https://www.linkedin.com/in/adityaranacs)  
+📍 Mohali, Punjab, India
+
+<!---
+adityaranacs/adityaranacs is a ✨ special ✨ repository because its `README.md` appears on your GitHub profile.
+You can click the Preview link to take a look at your changes.
+--->
+>>>>>>> 190d6321e4405ccb007f6fc55a4ac5799e08ef8d
