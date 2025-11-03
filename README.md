@@ -1,9 +1,8 @@
-<<<<<<< HEAD
 # 🚀 My Portfolio Website
 
 Welcome to the repository for my personal portfolio website! This is where I showcase my skills, projects, and a bit of my personality through jaw-dropping 3D animations, slick interactions, and fluid motion. If you're into creative web design, you're in the right place.
 
-![Portfolio Preview](https://github.com/Naresh-Khatri/Portfolio/blob/main/public/assets/projects-screenshots/portfolio/landing.png?raw=true)
+![Portfolio Preview](https://adityaranacs.vercel.app/)
 
 ## 🔥 Features
 
@@ -99,4 +98,4 @@ This project is open source and available under the [MIT License](LICENSE).
 adityaranacs/adityaranacs is a ✨ special ✨ repository because its `README.md` appears on your GitHub profile.
 You can click the Preview link to take a look at your changes.
 --->
->>>>>>> 190d6321e4405ccb007f6fc55a4ac5799e08ef8d
+>>>>>>> 
