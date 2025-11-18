@@ -90,7 +90,6 @@ export default function RootLayout({
               <TooltipProvider>
                 <Header />
                 {children}
-                <Analytics />
                 <Footer />
               </TooltipProvider>
             </SocketContextProvider>
@@ -99,6 +98,7 @@ export default function RootLayout({
             <ElasticCursor />
           </Preloader>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
