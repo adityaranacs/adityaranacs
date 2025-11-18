@@ -14,6 +14,8 @@ import EasterEggs from "@/components/easter-eggs";
 import { config } from "@/data/config";
 import SocketContextProvider from "@/contexts/socketio";
 import RemoteCursors from "@/components/realtime/remote-cursors";
+import { Analytics } from '@vercel/analytics/next';
+
 
 export const metadata: Metadata = {
   title: config.title,
@@ -88,6 +90,7 @@ export default function RootLayout({
               <TooltipProvider>
                 <Header />
                 {children}
+                <Analytics />
                 <Footer />
               </TooltipProvider>
             </SocketContextProvider>
