@@ -158,6 +158,13 @@ const PROJECT_SKILLS = {
     fg: "white",
     icon: <RiReactjsFill />,
   },
+  // NEW: React Native entry
+  reactNative: {
+    title: "React Native",
+    bg: "black",
+    fg: "white",
+    icon: <RiReactjsFill />, // re-using React icon for RN
+  },
   sanity: {
     title: "Sanity",
     bg: "black",
@@ -197,14 +204,12 @@ export type Project = {
 }
 
 const projects: Project[] = [
-{
+  {
     id: "hrms",
     category: "HR Management",
     title: "AI-Powered HRMS",
     src: "/tick-1.png",
-    screenshots: [
-      "/tick-1.png",
-    ],
+    screenshots: ["/tick-1.png"],
     skills: {
       frontend: [PROJECT_SKILLS.react, PROJECT_SKILLS.next, PROJECT_SKILLS.ts, PROJECT_SKILLS.tailwind],
       backend: [PROJECT_SKILLS.node, PROJECT_SKILLS.express, PROJECT_SKILLS.aws, PROJECT_SKILLS.postgres],
@@ -222,10 +227,8 @@ const projects: Project[] = [
           </TypographyP>
 
           <div className="flex flex-col items-center gap-10 my-10">
-            <img src="/tick-1.png" alt="HRMS Welcome Page"   className="rounded-2xl shadow-2xl w-full max-w-5xl object-cover"
- />
-            <img src="/tick-2.png" alt="HRMS Dashboard"   className="rounded-2xl shadow-2xl w-full max-w-5xl object-cover"
- />
+            <img src="/tick-1.png" alt="HRMS Welcome Page" className="rounded-2xl shadow-2xl w-full max-w-5xl object-cover" />
+            <img src="/tick-2.png" alt="HRMS Dashboard" className="rounded-2xl shadow-2xl w-full max-w-5xl object-cover" />
           </div>
 
           <TypographyH3 className="my-4 mt-8">Key Features</TypographyH3>
@@ -240,126 +243,124 @@ const projects: Project[] = [
     },
   },
 
-  // --------------------- BLOCKCHAIN DASHBOARD ---------------------
+  // --------------------- Sportex - Expert Insights (React Native) ---------------------
   {
-    id: "blockchain-dashboard",
-    category: "Analytics",
-    title: "Blockchain Analytics Dashboard",
-    src: "/b-1.webp",
-    screenshots: [
-      "/blockchain-dashboard-tx-chart.jpg",
-      "/blockchain-dashboard-network.jpg",
-    ],
+    id: "sportex",
+    category: "Mobile App",
+    title: "Sportex — Expert Insights",
+    src: "/sportex.png",
+    screenshots: ["/sportex-1.png"],
     skills: {
-      frontend: [PROJECT_SKILLS.react, PROJECT_SKILLS.next, PROJECT_SKILLS.ts, PROJECT_SKILLS.tailwind],
-      backend: [PROJECT_SKILLS.node, PROJECT_SKILLS.express, PROJECT_SKILLS.aws, PROJECT_SKILLS.postgres],
+      // changed to React Native frontend stack
+      frontend: [PROJECT_SKILLS.reactNative, PROJECT_SKILLS.ts, PROJECT_SKILLS.reactQuery],
+      backend: [PROJECT_SKILLS.node, PROJECT_SKILLS.express, PROJECT_SKILLS.postgres],
     },
-    live: "Private client project – not public",
+    live: "https://apps.apple.com/in/app/sportex-expert-insights/id6450542972",
     get content() {
       return (
         <div>
           <TypographyP className="font-mono text-xl text-center mb-4">
-            High-performance blockchain visualization and analytics platform.
+            Sportex — a mobile app delivering expert sports analysis and insights (built with React Native).
           </TypographyP>
           <TypographyP className="font-mono">
-            Built for real-time monitoring of blockchain transactions with custom visualization layers and API integration.
-          </TypographyP>
-
-          
-
-          <TypographyH3 className="my-4 mt-8">Core Highlights</TypographyH3>
-          <ul className="list-disc ml-6 font-mono space-y-2">
-            <li>Processes 1,000+ transactions per minute</li>
-            <li>Interactive analytics with D3.js visualizations</li>
-            <li>Secure API gateway for client dashboards</li>
-          </ul>
-        </div>
-      )
-    },
-  },
-
-  // --------------------- OCEANIEK STREAM ---------------------
-  {
-    id: "oceaniek-stream",
-    category: "Entertainment",
-    title: "Oceaniek Stream – Multi-Platform Streaming Solution",
-    src: "/oce.png",
-    screenshots: [
-      "/streaming-dashboard.jpg",
-      "/streaming-creator-portal.jpg",
-      "/streaming-mobile-ui.jpg",
-    ],
-    skills: {
-      frontend: [PROJECT_SKILLS.react, PROJECT_SKILLS.next, PROJECT_SKILLS.ts, PROJECT_SKILLS.tailwind],
-      backend: [PROJECT_SKILLS.node, PROJECT_SKILLS.express, PROJECT_SKILLS.aws, PROJECT_SKILLS.postgres],
-    },
-    live: "https://oceaniek.stream",
-    get content() {
-      return (
-        <div>
-          <TypographyP className="font-mono text-xl text-center mb-4">
-            Full-stack entertainment & live-streaming platform for creators and audiences.
-          </TypographyP>
-          <TypographyP className="font-mono">
-            A responsive streaming experience with adaptive bitrate streaming, creator dashboards,
-            and subscription-based access control.
+            Sportex provides curated expert commentary, match analysis, and personalised feeds for sports fans.
+            Implemented as a React Native (Expo) app with TypeScript—optimised for low-latency updates, native media
+            playback and push notifications.
           </TypographyP>
 
           <div className="flex flex-col items-center gap-10 my-10">
-          
+            <img src="/sportex-1.png" alt="Sportex Home" className="rounded-2xl shadow-2xl w-full max-w-5xl object-cover" />
           </div>
 
-          <TypographyH3 className="my-4 mt-8">Platform Highlights</TypographyH3>
+          <TypographyH3 className="my-4 mt-8">Highlights</TypographyH3>
           <ul className="list-disc ml-6 font-mono space-y-2">
-            <li>Live and on-demand content with global CDN</li>
-            <li>Creator subscription system</li>
-            <li>Adaptive bitrate playback</li>
-            <li>Analytics for viewer retention and engagement</li>
+            <li>React Native + TypeScript (Expo) mobile client</li>
+            <li>Expert-generated match previews and post-game analysis</li>
+            <li>Personalized content feeds and push notifications</li>
+            <li>Optimized native media playback for highlights and clips</li>
           </ul>
         </div>
       )
     },
   },
 
-  // --------------------- PUNJAB PORTS ---------------------
+  // --------------------- Look — Look App (React Native) ---------------------
   {
-  id: "nautilus-times",
-  category: "Enterprise",
-  title: "Nautilus Times – Maritime Services & Certification",
-  src: "/nt.png",
-  screenshots: ["/nt.png", "/nt.png"],
-  skills: {
-    frontend: [PROJECT_SKILLS.react, PROJECT_SKILLS.next, PROJECT_SKILLS.ts, PROJECT_SKILLS.tailwind],
-    backend: [PROJECT_SKILLS.node, PROJECT_SKILLS.express, PROJECT_SKILLS.aws, PROJECT_SKILLS.postgres],
+    id: "look-look",
+    category: "Mobile App",
+    title: "Look — Look App",
+    src: "/look.png",
+    screenshots: ["/look-1.png"],
+    skills: {
+      // changed to React Native frontend stack
+      frontend: [PROJECT_SKILLS.reactNative, PROJECT_SKILLS.ts],
+      backend: [PROJECT_SKILLS.firebase, PROJECT_SKILLS.supabase],
+    },
+    live: "https://apps.apple.com/in/app/look-look-app/id6737306253",
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono text-xl text-center mb-4">
+            Look — a discovery and social browsing experience on mobile (React Native).
+          </TypographyP>
+          <TypographyP className="font-mono">
+            Look is focused on discovery, visual content browsing and lightweight social interactions.
+            Implemented as a React Native app with TypeScript and offline-first media caching; features fast UI,
+            smooth gestures and progressive image loading.
+          </TypographyP>
+
+          <div className="flex flex-col items-center gap-10 my-10">
+            <img src="/look-1.png" alt="Look Home" className="rounded-2xl shadow-2xl w-full max-w-5xl object-cover" />
+          </div>
+
+          <TypographyH3 className="my-4 mt-8">Highlights</TypographyH3>
+          <ul className="list-disc ml-6 font-mono space-y-2">
+            <li>React Native + TypeScript mobile client</li>
+            <li>Visual-first discovery feed with offline caching</li>
+            <li>Lightweight social interactions and bookmarking</li>
+            <li>Optimized onboarding and progressive image loading</li>
+          </ul>
+        </div>
+      )
+    },
   },
-  live: "https://punjabports.com",
-  get content() {
-    return (
-      <div>
-        <TypographyP className="font-mono text-xl text-center mb-4">
-          Leading maritime services provider.
-        </TypographyP>
 
-        <TypographyP className="font-mono">
-          Nautilus Times offers a full range of maritime services including statutory surveys, certification, and 
-          STCW-compliant training. With over 15 years of experience, 60+ global offices, and thousands of certified 
-          seafarers, we ensure the highest standards of safety, quality, and compliance at sea.
-        </TypographyP>
+  // --------------------- NAUTILUS TIMES ---------------------
+  {
+    id: "nautilus-times",
+    category: "Enterprise",
+    title: "Nautilus Times – Maritime Services & Certification",
+    src: "/nt.png",
+    screenshots: ["/nt.png", "/nt.png"],
+    skills: {
+      frontend: [PROJECT_SKILLS.react, PROJECT_SKILLS.next, PROJECT_SKILLS.ts, PROJECT_SKILLS.tailwind],
+      backend: [PROJECT_SKILLS.node, PROJECT_SKILLS.express, PROJECT_SKILLS.aws, PROJECT_SKILLS.postgres],
+    },
+    live: "https://punjabports.com",
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono text-xl text-center mb-4">
+            Leading maritime services provider.
+          </TypographyP>
 
-        
+          <TypographyP className="font-mono">
+            Nautilus Times offers a full range of maritime services including statutory surveys, certification, and 
+            STCW-compliant training. With over 15 years of experience, 60+ global offices, and thousands of certified 
+            seafarers, we ensure the highest standards of safety, quality, and compliance at sea.
+          </TypographyP>
 
-        <TypographyH3 className="my-4 mt-8">Core Services</TypographyH3>
-        <ul className="list-disc ml-6 font-mono space-y-2">
-          <li>Statutory surveys and vessel certification</li>
-          <li>STCW-compliant training programs</li>
-          <li>Officer licensing and seafarer documentation</li>
-          <li>Vessel registration and technical services</li>
-        </ul>
-      </div>
-    )
+          <TypographyH3 className="my-4 mt-8">Core Services</TypographyH3>
+          <ul className="list-disc ml-6 font-mono space-y-2">
+            <li>Statutory surveys and vessel certification</li>
+            <li>STCW-compliant training programs</li>
+            <li>Officer licensing and seafarer documentation</li>
+            <li>Vessel registration and technical services</li>
+          </ul>
+        </div>
+      )
+    },
   },
-},
-
 
   // --------------------- PUNJAB PORTS CAFÉ ---------------------
   {
@@ -389,12 +390,9 @@ const projects: Project[] = [
           </TypographyP>
 
           <div className="flex flex-col items-center gap-10 my-10">
-            <img src="/pp.png" alt="Cafe Dashboard"   className="rounded-2xl shadow-2xl w-full max-w-5xl object-cover"
- />
-            <img src="/menu.png" alt="Menu Interface"   className="rounded-2xl shadow-2xl w-full max-w-5xl object-cover"
- />
-            <img src="/billing.png" alt="Billing System"   className="rounded-2xl shadow-2xl w-full max-w-5xl object-cover"
- />
+            <img src="/pp.png" alt="Cafe Dashboard" className="rounded-2xl shadow-2xl w-full max-w-5xl object-cover" />
+            <img src="/menu.png" alt="Menu Interface" className="rounded-2xl shadow-2xl w-full max-w-5xl object-cover" />
+            <img src="/billing.png" alt="Billing System" className="rounded-2xl shadow-2xl w-full max-w-5xl object-cover" />
           </div>
 
           <ul className="list-disc ml-6 font-mono space-y-2 mt-6">
@@ -407,46 +405,44 @@ const projects: Project[] = [
     },
   },
 
-// --------------------- THE HEALING GROOVE ---------------------
-{
-  id: "the-healing-groove",
-  category: "Healthcare & Wellness",
-  title: "The Healing Groove – Holistic Health & Wellness Platform",
-  src: "/thg.png",
-  screenshots: [
-    "/thg-homepage.jpg",
-    "/thg-services.jpg",
-    "/thg-therapy-dashboard.jpg",
-  ],
-  skills: {
-    frontend: [PROJECT_SKILLS.react, PROJECT_SKILLS.next, PROJECT_SKILLS.ts, PROJECT_SKILLS.tailwind],
-    backend: [PROJECT_SKILLS.node, PROJECT_SKILLS.express, PROJECT_SKILLS.aws, PROJECT_SKILLS.postgres],
-  },
-  live: "https://www.thehealinggroove.com/",
-  get content() {
-    return (
-      <div>
-        <TypographyP className="font-mono text-xl text-center mb-4">
-          A holistic healthcare and wellness platform focused on mental, emotional, and physical wellbeing.
-        </TypographyP>
-        <TypographyP className="font-mono">
-          The Healing Groove empowers users to connect with certified wellness practitioners, explore therapy
-          sessions, and manage holistic treatment plans seamlessly through an intuitive digital platform.
-        </TypographyP>
+  // --------------------- THE HEALING GROOVE ---------------------
+  {
+    id: "the-healing-groove",
+    category: "Healthcare & Wellness",
+    title: "The Healing Groove – Holistic Health & Wellness Platform",
+    src: "/thg.png",
+    screenshots: [
+      "/thg-homepage.jpg",
+      "/thg-services.jpg",
+      "/thg-therapy-dashboard.jpg",
+    ],
+    skills: {
+      frontend: [PROJECT_SKILLS.react, PROJECT_SKILLS.next, PROJECT_SKILLS.ts, PROJECT_SKILLS.tailwind],
+      backend: [PROJECT_SKILLS.node, PROJECT_SKILLS.express, PROJECT_SKILLS.aws, PROJECT_SKILLS.postgres],
+    },
+    live: "https://www.thehealinggroove.com/",
+    get content() {
+      return (
+        <div>
+          <TypographyP className="font-mono text-xl text-center mb-4">
+            A holistic healthcare and wellness platform focused on mental, emotional, and physical wellbeing.
+          </TypographyP>
+          <TypographyP className="font-mono">
+            The Healing Groove empowers users to connect with certified wellness practitioners, explore therapy
+            sessions, and manage holistic treatment plans seamlessly through an intuitive digital platform.
+          </TypographyP>
 
-        <TypographyH3 className="my-4 mt-8">Platform Highlights</TypographyH3>
-        <ul className="list-disc ml-6 font-mono space-y-2">
-          <li>Online therapy booking and wellness consultation</li>
-          <li>Personalized mental health programs and progress tracking</li>
-          <li>Practitioner management dashboard with secure communication</li>
-          <li>Integration of holistic healing practices with modern tech</li>
-        </ul>
-      </div>
-    )
+          <TypographyH3 className="my-4 mt-8">Platform Highlights</TypographyH3>
+          <ul className="list-disc ml-6 font-mono space-y-2">
+            <li>Online therapy booking and wellness consultation</li>
+            <li>Personalized mental health programs and progress tracking</li>
+            <li>Practitioner management dashboard with secure communication</li>
+            <li>Integration of holistic healing practices with modern tech</li>
+          </ul>
+        </div>
+      )
+    },
   },
-},
-
 ]
-
 
 export default projects
